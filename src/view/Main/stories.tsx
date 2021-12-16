@@ -15,5 +15,5 @@ const Template: Story = (args) => <Main {...args} />
 export const Basic = Template.bind({})
 
 Basic.args = {
-  title: 'React Avançado'
+  title: 'Machado Alves'
 }

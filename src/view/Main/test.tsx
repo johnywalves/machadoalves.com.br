@@ -7,7 +7,7 @@ describe('<Main />', () => {
     const { container } = render(<Main />)
 
     expect(
-      screen.getByRole('heading', { name: /react avançado/i })
+      screen.getByRole('heading', { name: /machado alves/i })
     ).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
@@ -16,6 +16,9 @@ describe('<Main />', () => {
   it('should render the colors correctly', () => {
     const { container } = render(<Main />)
 
-    expect(container.firstChild).toHaveStyleRule('background-color', '#06092b')
+    expect(container.firstChild?.firstChild).toHaveStyleRule(
+      'background-color',
+      'var(--icon-bg-color)'
+    )
   })
 })
