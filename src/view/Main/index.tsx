@@ -1,4 +1,6 @@
+import Summary from 'components/Summary'
 import WrapperPage from 'components/WrapperPage'
+import list from 'data/list'
 
 import Reading from './reading'
 import * as S from './styles'
@@ -17,6 +19,15 @@ const Main = () => (
         </div>
       </S.Content>
     </S.Forehead>
+
+    <S.Container>
+      <S.Stories>
+        {list.map((props, index) => (
+          <Summary key={index} {...props} />
+        ))}
+      </S.Stories>
+      <div></div>
+    </S.Container>
   </WrapperPage>
 )
 

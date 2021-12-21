@@ -33,3 +33,17 @@ export const Content = styled.div`
     }
   }
 `
+
+export const Container = styled.div`
+  margin: 2rem auto;
+  width: 80rem;
+  display: grid;
+  grid-template-columns: 66rem 10rem;
+`
+
+export const Stories = styled.div`
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 3.2rem;
+  margin-bottom: 2rem;
+`

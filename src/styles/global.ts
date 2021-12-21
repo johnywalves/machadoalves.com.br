@@ -12,7 +12,9 @@ const GlobalStyles = createGlobalStyle`
         --forehead-bg-color: #f0f0f0;
         --icon-bg-color: #ff6582;
         --normal-text: #333333;
+        --sub-text: #666666;
         --highlight-text: #ff6366;
+        --border-color: #cccccc;
     }
 
     html {
