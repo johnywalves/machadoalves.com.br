@@ -41,6 +41,7 @@ const Summary = ({
       </S.Top>
       <S.Summary>{summary}</S.Summary>
       <S.KeepReading>
+        {console.log('slug', slug)}
         <Link href={slug}>continuar lendo</Link>
       </S.KeepReading>
     </S.Wrapper>
