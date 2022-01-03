@@ -1,3 +1,4 @@
+import Search from 'components/Search'
 import Summary from 'components/Summary'
 import WrapperPage from 'components/WrapperPage'
 import list from 'data/list'
@@ -26,7 +27,7 @@ const Main = () => (
           <Summary key={index} {...props} />
         ))}
       </S.Stories>
-      <div></div>
+      <Search></Search>
     </S.Container>
   </WrapperPage>
 )

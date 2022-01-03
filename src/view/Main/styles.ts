@@ -7,7 +7,7 @@ export const Forehead = styled.div`
 `
 
 export const Content = styled.div`
-  width: 80rem;
+  width: 98rem;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -36,9 +36,10 @@ export const Content = styled.div`
 
 export const Container = styled.div`
   margin: 2rem auto;
-  width: 80rem;
+  width: 98rem;
   display: grid;
-  grid-template-columns: 66rem 10rem;
+  grid-template-columns: 66rem 30rem;
+  column-gap: 2rem;
 `
 
 export const Stories = styled.div`
