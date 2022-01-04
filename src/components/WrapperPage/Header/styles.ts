@@ -15,6 +15,7 @@ export const Icon = styled.div`
   margin: 0 1.2rem;
   border-radius: 100%;
   background-color: var(--icon-bg-color);
+  cursor: pointer;
 `
 
 export const Title = styled.div`
@@ -22,6 +23,7 @@ export const Title = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  cursor: pointer;
 
   h1 {
     font-size: 3.6rem;
