@@ -61,6 +61,7 @@ export const DetailIcon = styled.div`
   background-color: var(--highlight-text);
   transform: translateY(-50%);
   border-radius: 50%;
+  cursor: pointer;
 `
 
 export const DetailAuthorName = styled.p`
@@ -68,6 +69,7 @@ export const DetailAuthorName = styled.p`
   font-size: 1.6rem;
   font-weight: 700;
   margin: 0.8rem 0;
+  cursor: pointer;
 `
 
 export const DetailTitle = styled.p`

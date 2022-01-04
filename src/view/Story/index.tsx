@@ -1,4 +1,5 @@
 import WrapperPage from 'components/WrapperPage'
+import Link from 'next/link'
 
 import * as S from './styles'
 
@@ -69,8 +70,12 @@ const Story = () => (
         </p>
       </S.Story>
       <S.Detail>
-        <S.DetailIcon />
-        <S.DetailAuthorName>Machado Alves</S.DetailAuthorName>
+        <Link href="/machado-alves" passHref>
+          <S.DetailIcon />
+        </Link>
+        <Link href="/machado-alves" passHref>
+          <S.DetailAuthorName>Machado Alves</S.DetailAuthorName>
+        </Link>
         <S.DetailTitle>Quisque elementum</S.DetailTitle>
         <S.DetailPublished>
           Publicado <strong>01.01.2020</strong>
