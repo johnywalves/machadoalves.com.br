@@ -5,7 +5,7 @@ import GlobalStyles from 'styles/global'
 const url = 'https://www.machadoalves.com.br',
   title = 'Machado Alves - Contos Literários',
   description = 'Históricas curtas escritas por mim, amigos e domínio público',
-  thumbnail = `${url}/thumbnail`
+  thumbnail = `${url}/thumbnail.png`
 
 function App({ Component, pageProps }: AppProps) {
   return (
