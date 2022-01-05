@@ -2,7 +2,7 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import GlobalStyles from 'styles/global'
 
-const url = 'https://www.machadoalves.com.br/',
+const url = 'https://www.machadoalves.com.br',
   title = 'Machado Alves - Contos Literários',
   description = 'Históricas curtas escritas por mim, amigos e domínio público',
   thumbnail = `${url}/thumbnail`
