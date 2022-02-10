@@ -1,10 +1,14 @@
 import Summary from 'components/Summary'
 import WrapperPage from 'components/WrapperPage'
-import list from 'data/list'
+import stories from 'types/stories'
 
 import * as S from './styles'
 
-const Story = () => (
+type StoryProps = {
+  posts: Array<stories>
+}
+
+const Story = ({ posts }: StoryProps) => (
   <WrapperPage>
     <S.Forehead>
       <S.Icon />
@@ -20,9 +24,10 @@ const Story = () => (
         Duis tempus lorem a nisl vestibulum, nec accumsan diam luctus.
       </S.Description>
       <S.Stories>
-        {list.map((props, index) => (
-          <Summary key={index} {...props} />
-        ))}
+        {posts &&
+          posts
+            .filter(({ slug, title }) => slug && title)
+            .map((props, index) => <Summary key={index} {...props} />)}
       </S.Stories>
     </S.Content>
   </WrapperPage>

@@ -1,12 +1,16 @@
 import Search from 'components/Search'
 import Summary from 'components/Summary'
 import WrapperPage from 'components/WrapperPage'
-import list from 'data/list'
+import stories from 'types/stories'
 
 import Reading from './reading'
 import * as S from './styles'
 
-const Main = () => (
+type MainProps = {
+  highlights: Array<stories>
+}
+
+const Main = ({ highlights }: MainProps) => (
   <WrapperPage>
     <S.Forehead>
       <S.Content>
@@ -23,9 +27,8 @@ const Main = () => (
 
     <S.Container>
       <S.Stories>
-        {list.map((props, index) => (
-          <Summary key={index} {...props} />
-        ))}
+        {highlights &&
+          highlights.map((props, index) => <Summary key={index} {...props} />)}
       </S.Stories>
       <Search></Search>
     </S.Container>
