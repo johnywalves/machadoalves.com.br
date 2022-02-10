@@ -1,20 +1,27 @@
+import listAuthors from 'data/authors'
 import { getAllPosts } from 'functions/posts'
-import stories from 'types/stories'
-import Author from 'view/Author'
+import Author, { AuthorProps } from 'view/Author'
 
-type AuthorPageProps = {
-  posts: Array<stories>
+export default function AuthorPage({ name, description, posts }: AuthorProps) {
+  return <Author name={name} description={description} posts={posts} />
 }
 
-export default function AuthorPage({ posts }: AuthorPageProps) {
-  return <Author posts={posts} />
+type staticPropsProps = {
+  params: {
+    author: string
+  }
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }: staticPropsProps) {
   const posts = getAllPosts(['slug', 'title', 'author', 'summary'])
+  const { name, description } = listAuthors.find(
+    ({ slug }) => slug === params.author
+  ) || { name: '', description: '' }
 
   return {
     props: {
+      name,
+      description,
       posts
     }
   }
@@ -22,13 +29,9 @@ export async function getStaticProps() {
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      {
-        params: {
-          author: 'machado_alves'
-        }
-      }
-    ],
+    paths: listAuthors.map(({ slug }) => ({
+      params: { author: slug }
+    })),
     fallback: false
   }
 }

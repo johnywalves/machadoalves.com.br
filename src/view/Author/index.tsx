@@ -4,25 +4,20 @@ import stories from 'types/stories'
 
 import * as S from './styles'
 
-type StoryProps = {
+export type AuthorProps = {
+  name: string
+  description: string
   posts: Array<stories>
 }
 
-const Story = ({ posts }: StoryProps) => (
+const Author = ({ name, description, posts }: AuthorProps) => (
   <WrapperPage>
     <S.Forehead>
       <S.Icon />
     </S.Forehead>
     <S.Content>
-      <S.Name>Machado Alves</S.Name>
-      <S.Description>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare
-        ullamcorper fringilla. Sed vitae nisl eu nunc blandit efficitur. Proin
-        malesuada, dolor vitae posuere dignissim, purus dui porttitor ipsum, sit
-        amet tincidunt ex ipsum sed neque. Sed varius auctor vulputate. Donec
-        non metus eros. Morbi tempor mollis faucibus. Aenean sed ornare ipsum.
-        Duis tempus lorem a nisl vestibulum, nec accumsan diam luctus.
-      </S.Description>
+      <S.Name>{name}</S.Name>
+      <S.Description>{description}</S.Description>
       <S.Stories>
         {posts &&
           posts
@@ -33,4 +28,4 @@ const Story = ({ posts }: StoryProps) => (
   </WrapperPage>
 )
 
-export default Story
+export default Author

@@ -1,3 +1,4 @@
+import listAuthors from 'data/authors'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
@@ -50,13 +51,14 @@ export const getPostBySlug = (
     } else if (field === 'content') {
       story.content = content
     } else if (field === 'author') {
+      const { name, slug } = listAuthors[0]
+
       story.author = {
-        name: 'Machado Alves',
-        slug: 'machado_alves'
+        name,
+        slug
       }
-    } else if (field === 'summary') {
-      story.summary =
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet dapibus nibh. Fusce a posuere turpis. Aliquam erat volutpat. Integer condimentum viverra arcu finibus viverra. Fusce imperdiet sed augue sed pulvinar...'
+    } else if (field === 'summary' && data.summary) {
+      story.summary = data.summary
     } else if (field === 'published' && data.published) {
       story.published = data.published
     } else if (field === 'modified' && data.modified) {

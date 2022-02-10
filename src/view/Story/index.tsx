@@ -17,10 +17,10 @@ const Story = ({ title, content, author, published, modified }: stories) => (
       <S.Story dangerouslySetInnerHTML={{ __html: content || '' }} />
       {author && (
         <S.Detail>
-          <Link href={author.slug} passHref>
+          <Link href={`/${author.slug}`} passHref>
             <S.DetailIcon />
           </Link>
-          <Link href={author.slug} passHref>
+          <Link href={`/${author.slug}`} passHref>
             <S.DetailAuthorName>{author.name}</S.DetailAuthorName>
           </Link>
           <S.DetailTitle>{title}</S.DetailTitle>
