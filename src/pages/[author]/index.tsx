@@ -2,8 +2,20 @@ import listAuthors from 'data/authors'
 import { getAllPosts } from 'functions/posts'
 import Author, { AuthorProps } from 'view/Author'
 
-export default function AuthorPage({ name, description, posts }: AuthorProps) {
-  return <Author name={name} description={description} posts={posts} />
+export default function AuthorPage({
+  name,
+  description,
+  profile,
+  posts
+}: AuthorProps) {
+  return (
+    <Author
+      name={name}
+      description={description}
+      profile={profile}
+      posts={posts}
+    />
+  )
 }
 
 type staticPropsProps = {
@@ -13,8 +25,11 @@ type staticPropsProps = {
 }
 
 export async function getStaticProps({ params }: staticPropsProps) {
-  const posts = getAllPosts(['slug', 'title', 'author', 'summary'])
-  const { name, description } = listAuthors.find(
+  const posts = getAllPosts(['slug', 'title', 'author', 'summary']).filter(
+    ({ author }) => author.slug === params.author
+  )
+
+  const { name, description, profile } = listAuthors.find(
     ({ slug }) => slug === params.author
   ) || { name: '', description: '' }
 
@@ -22,6 +37,7 @@ export async function getStaticProps({ params }: staticPropsProps) {
     props: {
       name,
       description,
+      profile,
       posts
     }
   }

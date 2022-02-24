@@ -31,6 +31,7 @@ export const getPostBySlug = (
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
+  const paths = realSlug.split('-')
 
   const story: stories = {
     slug: '',
@@ -40,23 +41,19 @@ export const getPostBySlug = (
     modified: '',
     author: {
       name: '',
-      slug: ''
+      slug: '',
+      profile: ''
     }
   }
 
   fields.forEach((field) => {
     if (field === 'slug') {
-      const paths = realSlug.split('-')
       story.slug = paths[1]
     } else if (field === 'content') {
       story.content = content
     } else if (field === 'author') {
-      const { name, slug } = listAuthors[0]
-
-      story.author = {
-        name,
-        slug
-      }
+      const author = listAuthors.find(({ slug }) => slug === paths[0])
+      story.author = author || { slug: '', name: '', profile: '' }
     } else if (field === 'summary' && data.summary) {
       story.summary = data.summary
     } else if (field === 'published' && data.published) {

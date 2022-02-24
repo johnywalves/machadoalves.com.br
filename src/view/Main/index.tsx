@@ -28,7 +28,9 @@ const Main = ({ highlights }: MainProps) => (
     <S.Container>
       <S.Stories>
         {highlights &&
-          highlights.map((props, index) => <Summary key={index} {...props} />)}
+          highlights.map((props, index) => (
+            <Summary key={index} showAuthor={true} {...props} />
+          ))}
       </S.Stories>
       <Search></Search>
     </S.Container>

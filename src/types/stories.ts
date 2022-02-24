@@ -7,6 +7,7 @@ type stories = {
   author: {
     name: string
     slug: string
+    profile: string
   }
   content?: string
 }

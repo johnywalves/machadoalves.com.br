@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.article`
   border: 1px solid var(--border-color);
@@ -25,10 +25,21 @@ export const Author = styled.div`
   }
 `
 
+type IconProps = {
+  profile?: string
+}
+
+const profileIcon = (profile: string) =>
+  css`
+    background-image: url('${profile}');
+  `
+
 export const Icon = styled.div`
   height: 2.6rem;
   width: 2.6rem;
+  ${({ profile }: IconProps) => profile && profileIcon(profile)}
   background-color: var(--icon-bg-color);
+  background-size: cover;
   border-radius: 100%;
 `
 

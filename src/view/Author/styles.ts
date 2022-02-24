@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Forehead = styled.div`
   display: flex;
@@ -9,10 +9,21 @@ export const Forehead = styled.div`
   background-color: var(--forehead-bg-color);
 `
 
+type IconProps = {
+  profile?: string
+}
+
+const profileIcon = (profile: string) =>
+  css`
+    background-image: url('${profile}');
+  `
+
 export const Icon = styled.div`
   height: 9.8rem;
   width: 9.8rem;
-  background-color: var(--highlight-text);
+  ${({ profile }: IconProps) => profile && profileIcon(profile)}
+  background-color: var(--icon-bg-color);
+  background-size: cover;
   border-radius: 50%;
   transform: translateY(calc(50% + 2rem));
 `

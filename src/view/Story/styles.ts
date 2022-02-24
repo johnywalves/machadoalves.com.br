@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Content = styled.div`
   padding: 2rem calc(calc(100% - 98rem) / 2);
@@ -54,11 +54,22 @@ export const Detail = styled.div`
   }
 `
 
+type IconProps = {
+  profile?: string
+}
+
+const profileIcon = (profile: string) =>
+  css`
+    background-image: url('${profile}');
+  `
+
 export const DetailIcon = styled.div`
   height: 5.2rem;
   width: 5.2rem;
   margin-bottom: -2.6rem;
-  background-color: var(--highlight-text);
+  ${({ profile }: IconProps) => profile && profileIcon(profile)}
+  background-color: var(--icon-bg-color);
+  background-size: cover;
   transform: translateY(-50%);
   border-radius: 50%;
   cursor: pointer;

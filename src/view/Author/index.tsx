@@ -7,17 +7,18 @@ import * as S from './styles'
 export type AuthorProps = {
   name: string
   description: string
+  profile: string
   posts: Array<stories>
 }
 
-const Author = ({ name, description, posts }: AuthorProps) => (
+const Author = ({ name, description, profile, posts }: AuthorProps) => (
   <WrapperPage>
     <S.Forehead>
-      <S.Icon />
+      <S.Icon profile={profile} />
     </S.Forehead>
     <S.Content>
       <S.Name>{name}</S.Name>
-      <S.Description>{description}</S.Description>
+      <S.Description dangerouslySetInnerHTML={{ __html: description }} />
       <S.Stories>
         {posts &&
           posts

@@ -18,7 +18,7 @@ const Story = ({ title, content, author, published, modified }: stories) => (
       {author && (
         <S.Detail>
           <Link href={`/${author.slug}`} passHref>
-            <S.DetailIcon />
+            <S.DetailIcon profile={author.profile} />
           </Link>
           <Link href={`/${author.slug}`} passHref>
             <S.DetailAuthorName>{author.name}</S.DetailAuthorName>

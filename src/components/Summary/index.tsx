@@ -10,7 +10,8 @@ export interface SummaryProps {
   summary: string
   published: string
   modified: string
-  author: { name: string; slug: string }
+  showAuthor?: boolean
+  author: { name: string; slug: string; profile: string }
 }
 
 const Summary = ({
@@ -19,7 +20,8 @@ const Summary = ({
   summary,
   published,
   modified,
-  author: { name: nameAuthor, slug: slugAuthor }
+  showAuthor = false,
+  author: { name: nameAuthor, slug: slugAuthor, profile: profileAuthor }
 }: SummaryProps) => {
   const updateDescription = useMemo(() => {
     return `Publicado <strong>${published}</strong> e editado <strong>${modified}</strong>`
@@ -32,12 +34,14 @@ const Summary = ({
           <S.Title>{title}</S.Title>
           <S.Updates dangerouslySetInnerHTML={{ __html: updateDescription }} />
         </div>
-        <Link href={slugAuthor} passHref>
-          <S.Author>
-            <p>{nameAuthor}</p>
-            <S.Icon />
-          </S.Author>
-        </Link>
+        {showAuthor && (
+          <Link href={slugAuthor} passHref>
+            <S.Author>
+              <p>{nameAuthor}</p>
+              <S.Icon profile={profileAuthor} />
+            </S.Author>
+          </Link>
+        )}
       </S.Top>
       <S.Summary>{summary}</S.Summary>
       <S.KeepReading>
