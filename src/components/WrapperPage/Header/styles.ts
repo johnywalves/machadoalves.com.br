@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import Logo from './logo'
+
 export const Wrapper = styled.header`
   height: 8rem;
   width: 100%;
@@ -9,14 +11,7 @@ export const Wrapper = styled.header`
   justify-content: flex-start;
 `
 
-export const Icon = styled.div`
-  height: 5.2rem;
-  width: 5.2rem;
-  margin: 0 1.2rem;
-  border-radius: 100%;
-  background-color: var(--icon-bg-color);
-  cursor: pointer;
-`
+export const Icon = styled(Logo)``
 
 export const Title = styled.div`
   display: flex;

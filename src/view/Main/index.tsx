@@ -16,10 +16,10 @@ const Main = ({ highlights }: MainProps) => (
       <S.Content>
         <Reading />
         <div>
-          <h2>Lorem ipsum dolor sit amet</h2>
+          <h2>Compartilhando o amor pela leitura</h2>
           <p>
-            Nam vitae luctus felis, nec commodo massa. Fusce dapibus dolor vel
-            mi maximus, elementum sollicitudin odio
+            Coleção de histórias curtas de vários escritores para ler e
+            compartilhar
           </p>
         </div>
       </S.Content>

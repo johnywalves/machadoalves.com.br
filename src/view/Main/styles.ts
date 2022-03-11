@@ -23,7 +23,7 @@ export const Content = styled.div`
 
     & h2 {
       color: var(--highlight-text);
-      font-size: 6.4rem;
+      font-size: 5.2rem;
       margin-bottom: 2rem;
     }
 
