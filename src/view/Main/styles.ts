@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const Forehead = styled.div`
+export const MainForehead = styled.div`
   width: 100%;
   background-color: var(--forehead-bg-color);
   padding: 6rem 0;
 `
 
-export const Content = styled.div`
+export const MainContent = styled.div`
   width: 98rem;
   margin: 0 auto;
   display: flex;
@@ -22,7 +22,7 @@ export const Content = styled.div`
     justify-content: center;
 
     & h2 {
-      color: var(--highlight-text);
+      color: var(--color-primary);
       font-size: 5.2rem;
       margin-bottom: 2rem;
     }
@@ -34,7 +34,7 @@ export const Content = styled.div`
   }
 `
 
-export const Container = styled.div`
+export const MainContainer = styled.div`
   margin: 2rem auto;
   width: 98rem;
   display: grid;
@@ -42,7 +42,7 @@ export const Container = styled.div`
   column-gap: 2rem;
 `
 
-export const Stories = styled.div`
+export const MainStories = styled.div`
   display: grid;
   grid-template-columns: 100%;
   row-gap: 3.2rem;

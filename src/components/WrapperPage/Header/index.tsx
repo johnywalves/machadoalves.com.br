@@ -1,22 +1,21 @@
 import Link from 'next/link'
 
-import * as S from './styles'
+import manifest from '../../../../public/manifest.json'
+import { HeaderWrapper, HeaderIcon, HeaderTitle } from './styles'
 
 const Header = () => {
   return (
-    <S.Wrapper>
+    <HeaderWrapper>
       <Link href="/" passHref>
-        <S.Icon />
+        <HeaderIcon />
       </Link>
       <Link href="/" passHref>
-        <S.Title>
-          <h1>Machado Alves</h1>
-          <small>
-            Históricas curtas escritas por mim, amigos e domínio público
-          </small>
-        </S.Title>
+        <HeaderTitle>
+          <h1>{manifest.short_name}</h1>
+          <small>{manifest.description}</small>
+        </HeaderTitle>
       </Link>
-    </S.Wrapper>
+    </HeaderWrapper>
   )
 }
 

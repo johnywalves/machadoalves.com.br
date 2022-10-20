@@ -1,10 +1,11 @@
 import Search from 'components/Search'
 import Summary from 'components/Summary'
 import WrapperPage from 'components/WrapperPage'
+
 import stories from 'types/stories'
 
 import Reading from './reading'
-import * as S from './styles'
+import { MainForehead, MainContent, MainContainer, MainStories } from './styles'
 
 type MainProps = {
   highlights: Array<stories>
@@ -12,8 +13,8 @@ type MainProps = {
 
 const Main = ({ highlights }: MainProps) => (
   <WrapperPage>
-    <S.Forehead>
-      <S.Content>
+    <MainForehead>
+      <MainContent>
         <Reading />
         <div>
           <h2>Compartilhando o amor pela leitura</h2>
@@ -22,18 +23,18 @@ const Main = ({ highlights }: MainProps) => (
             compartilhar
           </p>
         </div>
-      </S.Content>
-    </S.Forehead>
+      </MainContent>
+    </MainForehead>
 
-    <S.Container>
-      <S.Stories>
+    <MainContainer>
+      <MainStories>
         {highlights &&
           highlights.map((props, index) => (
             <Summary key={index} showAuthor={true} {...props} />
           ))}
-      </S.Stories>
+      </MainStories>
       <Search></Search>
-    </S.Container>
+    </MainContainer>
   </WrapperPage>
 )
 

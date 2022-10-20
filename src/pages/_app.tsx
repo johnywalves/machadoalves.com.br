@@ -1,35 +1,54 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import Router from 'next/router'
+import NProgress from 'nprogress'
 import GlobalStyles from 'styles/global'
 
-const url = 'https://www.machadoalves.com.br',
-  title = 'Machado Alves - Contos Literários',
-  description = 'Históricas curtas escritas por mim, amigos e domínio público',
-  thumbnail = `${url}/thumbnail.png`
+import manifest from '../../public/manifest.json'
+
+import '../styles/nprogress.css'
+
+Router.events.on('routeChangeStart', (url: string) => {
+  console.log(`Loading: ${url}`)
+  NProgress.start()
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="theme-color" content={manifest.theme_color} />
+
+        <title>{manifest.name}</title>
+        <meta name="title" content={manifest.short_name} />
+        <meta name="description" content={manifest.description} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={manifest.public_url} />
+        <meta property="og:site_name" content={manifest.name} />
+        <meta property="og:title" content={manifest.short_name} />
+        <meta property="og:description" content={manifest.description} />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content={manifest.thumbnail}
+        />
+        <meta property="og:locale" content="pt_BR" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={manifest.public_url} />
+        <meta property="twitter:title" content={manifest.name} />
+        <meta property="twitter:description" content={manifest.description} />
+        <meta property="twitter:image" content={manifest.thumbnail} />
+
         <link rel="shortcut icon" href="/img/icon-512.png" />
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="description" content={description} />
-        <meta name="twitter:card" content="summary" key="twcard" />
-        <meta name="twitter:title" content={title} key="twtitle" />
-        <meta
-          name="twitter:description"
-          content={description}
-          key="twdescription"
-        />
-        <meta name="twitter:image:src" content={thumbnail} />
-        <meta property="og:url" content={url} key="ogurl" />
-        <meta property="og:type" content="website" key="ogtype" />
-        <meta property="og:image" content={thumbnail} key="ogimage" />
-        <meta property="og:site_name" content={title} key="ogsitename" />
-        <meta property="og:title" content={title} key="ogtitle" />
-        <meta property="og:description" content={description} key="ogdesc" />
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />

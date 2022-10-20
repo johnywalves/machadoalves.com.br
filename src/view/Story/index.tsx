@@ -1,42 +1,55 @@
 import WrapperPage from 'components/WrapperPage'
 import Link from 'next/link'
+
 import stories from 'types/stories'
 
-import * as S from './styles'
+import {
+  StoryContent,
+  StoryTitle,
+  StorySubtitle,
+  StoryContainer,
+  StoryStory,
+  StoryDetail,
+  StoryDetailIcon,
+  StoryDetailAuthorName,
+  StoryDetailTitle,
+  StoryDetailPublished,
+  StoryDetailEdited
+} from './styles'
 
 const Story = ({ title, content, author, published, modified }: stories) => (
   <WrapperPage>
-    <S.Content>
-      <S.Title>{title}</S.Title>
-      <S.Subtitle>
+    <StoryContent>
+      <StoryTitle>{title}</StoryTitle>
+      <StorySubtitle>
         Publicado <strong>{published}</strong> e editado{' '}
         <strong>{modified}</strong>
-      </S.Subtitle>
-    </S.Content>
-    <S.Container>
-      <S.Story dangerouslySetInnerHTML={{ __html: content || '' }} />
+      </StorySubtitle>
+    </StoryContent>
+    <StoryContainer>
+      <StoryStory dangerouslySetInnerHTML={{ __html: content || '' }} />
       {author && (
-        <S.Detail>
+        <StoryDetail>
           <Link href={`/${author.slug}`} passHref>
-            <S.DetailIcon profile={author.profile} />
+            <StoryDetailIcon profile={author.profile} />
           </Link>
           <Link href={`/${author.slug}`} passHref>
-            <S.DetailAuthorName>{author.name}</S.DetailAuthorName>
+            <StoryDetailAuthorName>{author.name}</StoryDetailAuthorName>
           </Link>
-          <S.DetailTitle>{title}</S.DetailTitle>
-          <S.DetailPublished>
+          <StoryDetailTitle>{title}</StoryDetailTitle>
+          <StoryDetailPublished>
             Publicado <strong>{published}</strong>
-          </S.DetailPublished>
-          <S.DetailEdited>
+          </StoryDetailPublished>
+          <StoryDetailEdited>
             Editado <strong>{modified}</strong>
-          </S.DetailEdited>
+          </StoryDetailEdited>
           {/*<S.DetailScoreLabel>Aprovação</S.DetailScoreLabel>
         <S.DetailScore>
           <strong>96%</strong> (356)
         </S.DetailScore>*/}
-        </S.Detail>
+        </StoryDetail>
       )}
-    </S.Container>
+    </StoryContainer>
   </WrapperPage>
 )
 

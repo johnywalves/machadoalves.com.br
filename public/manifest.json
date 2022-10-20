@@ -1,6 +1,12 @@
 {
-  "name": "Machado Alves",
-  "short_name": "Machado Alves - Contos literários",
+  "name": "Machado Alves - Contos literários",
+  "short_name": "Machado Alves",
+  "description": "Machado Alves - Histórias curtas escritas por mim, amigos ou domínio público",
+  "background_color": "#06092B",
+  "theme_color": "#e0138c",
+  "display": "fullscreen",
+  "start_url": "/",
+  "public_url": "",
   "icons": [
     {
       "src": "/img/icon-192.png",
@@ -13,9 +19,5 @@
       "sizes": "512x512"
     }
   ],
-  "background_color": "#06092B",
-  "description": "Machado Alves - Histórias curtas escritas por mim, amigos ou domínio público",
-  "display": "fullscreen",
-  "start_url": "/",
-  "theme_color": "#06092B"
+  "thumbnail": "https://www.machadoalves.com.br/imgs/thumbnail.jpg"
 }

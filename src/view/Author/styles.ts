@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Forehead = styled.div`
+export const AuthorForehead = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@ const profileIcon = (profile: string) =>
     background-image: url('${profile}');
   `
 
-export const Icon = styled.div`
+export const AuthorIcon = styled.div`
   height: 9.8rem;
   width: 9.8rem;
   ${({ profile }: IconProps) => profile && profileIcon(profile)}
@@ -28,25 +28,25 @@ export const Icon = styled.div`
   transform: translateY(calc(50% + 2rem));
 `
 
-export const Content = styled.div`
+export const AuthorContent = styled.div`
   padding: 2rem calc(calc(100% - 98rem) / 2);
 `
 
-export const Name = styled.h2`
+export const AuthorName = styled.h2`
   text-align: center;
   font-size: 6.4rem;
-  color: var(--highlight-text);
+  color: var(--color-primary);
 `
 
-export const Description = styled.p`
+export const AuthorDescription = styled.p`
   margin: 1rem 0;
   font-size: 1.6rem;
-  text-align: center;
+  text-align: left;
 `
 
-export const Stories = styled.div`
+export const AuthorStories = styled.div`
   display: grid;
   grid-template-columns: 100%;
   row-gap: 3.2rem;
-  margin: 2rem 0;
+  margin: 3rem 0 4rem;
 `

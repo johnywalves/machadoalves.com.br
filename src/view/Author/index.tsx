@@ -1,31 +1,39 @@
 import Summary from 'components/Summary'
 import WrapperPage from 'components/WrapperPage'
+
 import stories from 'types/stories'
 
-import * as S from './styles'
+import {
+  AuthorForehead,
+  AuthorIcon,
+  AuthorContent,
+  AuthorName,
+  AuthorDescription,
+  AuthorStories
+} from './styles'
 
 export type AuthorProps = {
   name: string
-  description: string
+  content: string
   profile: string
   posts: Array<stories>
 }
 
-const Author = ({ name, description, profile, posts }: AuthorProps) => (
+const Author = ({ name, content, profile, posts }: AuthorProps) => (
   <WrapperPage>
-    <S.Forehead>
-      <S.Icon profile={profile} />
-    </S.Forehead>
-    <S.Content>
-      <S.Name>{name}</S.Name>
-      <S.Description dangerouslySetInnerHTML={{ __html: description }} />
-      <S.Stories>
+    <AuthorForehead>
+      <AuthorIcon profile={profile} />
+    </AuthorForehead>
+    <AuthorContent>
+      <AuthorName>{name}</AuthorName>
+      <AuthorDescription dangerouslySetInnerHTML={{ __html: content }} />
+      <AuthorStories>
         {posts &&
           posts
             .filter(({ slug, title }) => slug && title)
             .map((props, index) => <Summary key={index} {...props} />)}
-      </S.Stories>
-    </S.Content>
+      </AuthorStories>
+    </AuthorContent>
   </WrapperPage>
 )
 

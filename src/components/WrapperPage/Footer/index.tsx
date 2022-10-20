@@ -1,13 +1,13 @@
-import * as S from './styles'
+import { FooterWrapper } from './styles'
 
 const Footer = () => {
   return (
-    <S.Wrapper>
-      ©2021 made with ♥ by{' '}
+    <FooterWrapper>
+      ©2021-2022 made with ♥ by
       <a href="https://johnywalves.com.br/" target="_blank" rel="noreferrer">
         Johny W. Alves
       </a>
-    </S.Wrapper>
+    </FooterWrapper>
   )
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.footer`
+export const FooterWrapper = styled.footer`
   height: 8rem;
   width: 100%;
   background-color: var(--forehead-bg-color);
@@ -8,5 +8,9 @@ export const Wrapper = styled.footer`
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 500;
+
+  a {
+    margin-left: 0.5rem;
+  }
 `

@@ -2,7 +2,16 @@ import { useMemo } from 'react'
 
 import Link from 'next/link'
 
-import * as S from './styles'
+import {
+  SummaryWrapper,
+  SummaryTop,
+  SummaryAuthor,
+  SummaryIcon,
+  SummaryTitle,
+  SummaryUpdates,
+  SummarySummary,
+  SummaryKeepReading
+} from './styles'
 
 export interface SummaryProps {
   slug: string
@@ -28,26 +37,28 @@ const Summary = ({
   }, [published, modified])
 
   return (
-    <S.Wrapper>
-      <S.Top>
+    <SummaryWrapper>
+      <SummaryTop>
         <div>
-          <S.Title>{title}</S.Title>
-          <S.Updates dangerouslySetInnerHTML={{ __html: updateDescription }} />
+          <SummaryTitle>{title}</SummaryTitle>
+          <SummaryUpdates
+            dangerouslySetInnerHTML={{ __html: updateDescription }}
+          />
         </div>
         {showAuthor && (
           <Link href={slugAuthor} passHref>
-            <S.Author>
+            <SummaryAuthor>
               <p>{nameAuthor}</p>
-              <S.Icon profile={profileAuthor} />
-            </S.Author>
+              <SummaryIcon profile={profileAuthor} />
+            </SummaryAuthor>
           </Link>
         )}
-      </S.Top>
-      <S.Summary>{summary}</S.Summary>
-      <S.KeepReading>
-        <Link href={`/${slugAuthor}/${slug}`}>continuar lendo</Link>
-      </S.KeepReading>
-    </S.Wrapper>
+      </SummaryTop>
+      <SummarySummary>{summary}</SummarySummary>
+      <SummaryKeepReading>
+        <Link href={slug}>continuar lendo</Link>
+      </SummaryKeepReading>
+    </SummaryWrapper>
   )
 }
 

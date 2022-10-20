@@ -1,20 +1,16 @@
-import listAuthors from 'data/authors'
+import { getAuthorsBySlug, getAuthorsSlugs } from 'functions/authors'
+import markdownToHtml from 'functions/markdownToHtml'
 import { getAllPosts } from 'functions/posts'
 import Author, { AuthorProps } from 'view/Author'
 
 export default function AuthorPage({
   name,
-  description,
+  content,
   profile,
   posts
 }: AuthorProps) {
   return (
-    <Author
-      name={name}
-      description={description}
-      profile={profile}
-      posts={posts}
-    />
+    <Author name={name} content={content} profile={profile} posts={posts} />
   )
 }
 
@@ -25,18 +21,28 @@ type staticPropsProps = {
 }
 
 export async function getStaticProps({ params }: staticPropsProps) {
-  const posts = getAllPosts(['slug', 'title', 'author', 'summary']).filter(
-    ({ author }) => author.slug === params.author
-  )
-
-  const { name, description, profile } = listAuthors.find(
-    ({ slug }) => slug === params.author
-  ) || { name: '', description: '' }
+  const {
+      name,
+      content: markdown,
+      profile
+    } = getAuthorsBySlug(params.author, ['name', 'content']) || {
+      name: '',
+      markdown: ''
+    },
+    content = await markdownToHtml(markdown || ''),
+    posts = getAllPosts([
+      'slug',
+      'title',
+      'author',
+      'summary',
+      'published',
+      'modified'
+    ]).filter(({ author }) => author.slug === params.author)
 
   return {
     props: {
       name,
-      description,
+      content,
       profile,
       posts
     }
@@ -45,7 +51,7 @@ export async function getStaticProps({ params }: staticPropsProps) {
 
 export async function getStaticPaths() {
   return {
-    paths: listAuthors.map(({ slug }) => ({
+    paths: getAuthorsSlugs().map((slug) => ({
       params: { author: slug }
     })),
     fallback: false

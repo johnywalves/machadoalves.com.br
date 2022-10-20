@@ -1,21 +1,21 @@
 import styled, { css } from 'styled-components'
 
-export const Content = styled.div`
+export const StoryContent = styled.div`
   padding: 2rem calc(calc(100% - 98rem) / 2);
   background-color: var(--forehead-bg-color);
 `
 
-export const Title = styled.h2`
-  color: var(--highlight-text);
+export const StoryTitle = styled.h2`
+  color: var(--color-primary);
   font-size: 6.4rem;
 `
 
-export const Subtitle = styled.small`
+export const StorySubtitle = styled.small`
   color: var(--sub-text);
   font-size: 1.6rem;
 `
 
-export const Container = styled.div`
+export const StoryContainer = styled.div`
   margin: 2rem auto;
   width: 98rem;
   display: grid;
@@ -23,7 +23,7 @@ export const Container = styled.div`
   column-gap: 2rem;
 `
 
-export const Story = styled.div`
+export const StoryStory = styled.div`
   display: grid;
   grid-template-columns: 100%;
   row-gap: 3.2rem;
@@ -37,7 +37,7 @@ export const Story = styled.div`
   }
 `
 
-export const Detail = styled.div`
+export const StoryDetail = styled.div`
   border: 1px solid var(--border-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   height: fit-content;
@@ -63,7 +63,7 @@ const profileIcon = (profile: string) =>
     background-image: url('${profile}');
   `
 
-export const DetailIcon = styled.div`
+export const StoryDetailIcon = styled.div`
   height: 5.2rem;
   width: 5.2rem;
   margin-bottom: -2.6rem;
@@ -75,7 +75,7 @@ export const DetailIcon = styled.div`
   cursor: pointer;
 `
 
-export const DetailAuthorName = styled.p`
+export const StoryDetailAuthorName = styled.p`
   color: var(--sub-text);
   font-size: 1.6rem;
   font-weight: 700;
@@ -83,32 +83,32 @@ export const DetailAuthorName = styled.p`
   cursor: pointer;
 `
 
-export const DetailTitle = styled.p`
+export const StoryDetailTitle = styled.p`
   font-size: 2rem;
   font-weight: 700;
   margin: 0.8rem 0;
 `
 
-export const DetailPublished = styled.p`
+export const StoryDetailPublished = styled.p`
   color: var(--sub-text);
   font-size: 1.2rem;
 `
 
-export const DetailEdited = styled.p`
+export const StoryDetailEdited = styled.p`
   color: var(--sub-text);
   font-size: 1.2rem;
 `
 
-export const DetailScoreLabel = styled.p`
+export const StoryDetailScoreLabel = styled.p`
   font-size: 1.6rem;
   margin: 0.8rem 0 0.4rem;
 `
 
-export const DetailScore = styled.p`
+export const StoryDetailScore = styled.p`
   color: var(--sub-text);
   font-size: 1.8rem;
 
   & strong {
-    color: var(--highlight-text);
+    color: var(--color-primary);
   }
 `

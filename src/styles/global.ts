@@ -1,9 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-    * {
+    *,
+    *:before,
+    *:after {
         margin: 0;
         padding: 0;
+        outline: 0;
         box-sizing: border-box;
     }
 
@@ -11,32 +14,34 @@ const GlobalStyles = createGlobalStyle`
         --main-bg-color: #ffffff;
         --forehead-bg-color: #f0f0f0;
         --icon-bg-color: #ff6582;
+        --color-primary: #e0138c;
         --normal-text: #333333;
         --sub-text: #666666;
-        --highlight-text: #ff6366;
         --border-color: #cccccc;
+    }
+
+    html, 
+    body, 
+    #__next {
+        height: 100vh;
     }
 
     html {
         font-size: 62.5%;
     }
 
-    html, body, #__next {
-        height: 100%;
-    }
-
     body {
+        overflow-y: scroll;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
     }
 
     #__next { 
         background-color: var(--main-bg-color);
         color: var(--normal-text);
-        width: 100%;
     }
 
     a {
-        color: var(--highlight-text);
+        color: var(--color-primary);
         text-decoration: none;
     }
 

@@ -1,6 +1,8 @@
-import { markdownToHtml, getAllPosts, getPostBySlug } from 'functions/posts'
-import stories from 'types/stories'
+import markdownToHtml from 'functions/markdownToHtml'
+import { getAllPosts, getPostBySlug } from 'functions/posts'
 import Story from 'view/Story'
+
+import stories from 'types/stories'
 
 type StoryPageProps = {
   post: stories
@@ -13,12 +15,12 @@ export default function StoryPage({ post }: StoryPageProps) {
 type staticPropsProps = {
   params: {
     author: string
-    slug: string
+    title: string
   }
 }
 
 export async function getStaticProps({ params }: staticPropsProps) {
-  const post = getPostBySlug(`${params.author}-${params.slug}`, [
+  const post = getPostBySlug(`${params.author}/${params.title}`, [
     'slug',
     'title',
     'author',
@@ -40,15 +42,15 @@ export async function getStaticProps({ params }: staticPropsProps) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug', 'author'])
-
   return {
-    paths: posts.map((post) => ({
-      params: {
-        author: post.author.slug,
-        slug: post.slug
+    paths: getAllPosts().map((post) => {
+      return {
+        params: {
+          author: post.slug.split('/')[0],
+          title: post.slug.split('/')[1]
+        }
       }
-    })),
+    }),
     fallback: false
   }
 }

@@ -1,10 +1,10 @@
-import * as S from './styles'
+import { SearchWrapper, SearchInputSearch } from './styles'
 
 const Search = () => {
   return (
-    <S.Wrapper>
-      <S.InputSearch placeholder="Busca de histórias" />
-    </S.Wrapper>
+    <SearchWrapper>
+      <SearchInputSearch placeholder="Busca de histórias" />
+    </SearchWrapper>
   )
 }
 

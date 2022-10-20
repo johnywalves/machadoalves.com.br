@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Logo from './logo'
 
-export const Wrapper = styled.header`
+export const HeaderWrapper = styled.header`
   height: 8rem;
   width: 100%;
   display: flex;
@@ -11,9 +11,9 @@ export const Wrapper = styled.header`
   justify-content: flex-start;
 `
 
-export const Icon = styled(Logo)``
+export const HeaderIcon = styled(Logo)``
 
-export const Title = styled.div`
+export const HeaderTitle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

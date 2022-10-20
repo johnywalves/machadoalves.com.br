@@ -12,7 +12,7 @@ const IcoLogo = () => (
     xmlSpace="preserve"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="31.833" cy="32" r="32" fill="#ff7e84" />
+    <circle cx="31.833" cy="32" r="32" fill="#e0138c" />
     <g opacity=".2">
       <path
         d="m52 48c0 1.105-0.895 2-2 2h-36c-1.105 0-2-0.895-2-2s0.895-2 2-2h36c1.105 0 2 0.895 2 2z"
@@ -21,7 +21,7 @@ const IcoLogo = () => (
     </g>
     <path
       d="m52 46c0 1.105-0.895 2-2 2h-36c-1.105 0-2-0.895-2-2s0.895-2 2-2h36c1.105 0 2 0.895 2 2z"
-      fill="#E0995E"
+      fill="#fac7e5"
     />
     <path
       d="m23 20h-4c-1.657 0-3 1.343-3 3v21h10v-21c0-1.657-1.343-3-3-3z"
@@ -31,8 +31,8 @@ const IcoLogo = () => (
       d="m45 16h-4c-1.657 0-3 1.343-3 3v25h10v-25c0-1.657-1.343-3-3-3z"
       fill="#E0E0D1"
     />
-    <rect x="16" y="24" width="10" height="3" fill="#E0995E" />
-    <rect x="16" y="37" width="10" height="3" fill="#E0995E" />
+    <rect x="16" y="24" width="10" height="3" fill="#fac7e5" />
+    <rect x="16" y="37" width="10" height="3" fill="#fac7e5" />
     <rect x="38" y="37" width="10" height="3" fill="#fff" />
     <rect x="38" y="20" width="10" height="3" fill="#fff" />
     <g fill="#231F20" opacity=".2">
