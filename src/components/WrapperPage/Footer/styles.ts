@@ -10,6 +10,11 @@ export const FooterWrapper = styled.footer`
   font-size: 1.6rem;
   font-weight: 500;
 
+  span {
+    color: var(--color-danger);
+    margin: 0 0.5rem;
+  }
+
   a {
     margin-left: 0.5rem;
   }

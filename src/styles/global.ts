@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
         --normal-text: #333333;
         --sub-text: #666666;
         --border-color: #cccccc;
+        --color-danger: #e01324;
     }
 
     html, 
